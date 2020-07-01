@@ -30,5 +30,6 @@
 	"simulator": "wechat",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"libVersion": "1.0.0",
 	"condition": {}
 }

@@ -9,6 +9,10 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
+  plugins: [
+    '@tarojs/plugin-sass',
+    '@tarojs/plugin-less'
+  ],
   babel: {
     sourceMap: true,
     presets: [
@@ -29,10 +33,12 @@ const config = {
       ]
     ]
   },
-  plugins: [
-    '@tarojs/plugin-sass',
-    '@tarojs/plugin-terser'
-  ],
+  uglify: {
+    enable: true,
+    config: {
+      // 配置项同 https://github.com/mishoo/UglifyJS2#minify-options
+    }
+  },
   defineConstants: {
   },
   mini: {
@@ -54,9 +60,9 @@ const config = {
         }
       },
       url: {
-        enable: true,
+        enable: false,
         config: {
-          limit: 10240 // 设定转换尺寸上限
+          limit: 5 // 设定转换尺寸上限
         }
       },
       cssModules: {
@@ -66,11 +72,17 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
+    },
+    webpackChain (chain, webpack) {
+      // 是否开启打包文件分析
+      // chain.plugin('analyzer')
+      //   .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, [])
     }
   },
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
+    esnextModules: ['taro-ui'],
     postcss: {
       autoprefixer: {
         enable: true,
