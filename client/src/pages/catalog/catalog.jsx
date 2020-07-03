@@ -1,7 +1,7 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Navigator, ScrollView, Image, Block} from '@tarojs/components';
 import { connect } from '@tarojs/redux';
-import { TabBar } from '../../components';
+import { TabBar } from '@/components';
 import './index.less';
 
 @connect(({catalog, goods}) => ({
@@ -54,7 +54,7 @@ class Index extends Component {
       <Block>
         <View className='bar-container container'>
           <View className='search'>
-            <Navigator url='/pages/search/search' className='input'>
+            <Navigator url='/packages/pages/search/search' className='input'>
               <van-icon name='search' />
               <Text className='txt'>商品搜索, 共{goodsCount}款好物</Text>
             </Navigator>
@@ -86,7 +86,7 @@ class Index extends Component {
               <View className='bd'>
                 {
                   Array.isArray(currentSubCategory) && currentSubCategory.map((item, index) => {
-                    return <Navigator url={`/pages/category/category?id=${item.id}`} className={`item ${(index+1) % 3 == 0 ? 'last' : ''}`} key={item.id}>
+                    return <Navigator url={`/packages/pages/category/category?id=${item.id}`} className={`item ${(index+1) % 3 == 0 ? 'last' : ''}`} key={item.id}>
                       <Image className='icon' src={item.picUrl}></Image>
                       <Text className='txt'>{item.name}</Text>
                     </Navigator>

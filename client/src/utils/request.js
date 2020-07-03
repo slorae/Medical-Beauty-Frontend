@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro';
-import {showErrorToast} from '../utils/util';
+import {showErrorToast} from '@/utils/util';
 
 
 /**
@@ -29,7 +29,7 @@ function request(url, data = {}, method = "GET") {
             }
             // 切换到登录页面
             Taro.navigateTo({
-              url: '/pages/auth/login/login'
+              url: '/packages/pages/auth/login/login'
             });
           } else if(res.data.errno == 0) {
             resolve(res.data.data);

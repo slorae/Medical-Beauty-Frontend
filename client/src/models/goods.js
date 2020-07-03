@@ -1,4 +1,4 @@
-import {getGoodsCount, getGoodsDetail} from '../services/goods';
+import {getGoodsCount, getGoodsDetail} from '@/services/goods';
 
 export default {
   namespace: 'goods',

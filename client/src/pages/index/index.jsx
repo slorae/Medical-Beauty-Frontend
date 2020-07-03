@@ -2,9 +2,9 @@ import Taro, { PureComponent } from '@tarojs/taro'
 import { View, Text, Navigator, Swiper, SwiperItem, Image, ScrollView, Block } from '@tarojs/components'
 import { connect } from '@tarojs/redux';
 import { AtIcon, AtTag} from 'taro-ui';
-import { TabBar } from '../../components';
-import { get as getGlobalData} from '../../global_data';
-import { couponReceive } from '../../services/coupon';
+import { TabBar } from '@/components';
+import { get as getGlobalData} from '@/global_data';
+import { couponReceive } from '@/services/coupon';
 
 import './index.less'
 
@@ -105,7 +105,7 @@ class Index extends PureComponent {
   getCoupon = (e) => {
     if (!getGlobalData('hasLogin')) {
       Taro.navigateTo({
-        url: "/pages/auth/login/login"
+        url: "/packages/pages/auth/login/login"
       });
     }
 
@@ -125,7 +125,7 @@ class Index extends PureComponent {
       <Block>
         <View className='bar-container container'>
           <View className='search'>
-            <Navigator url='/pages/search/search' className='input'>
+            <Navigator url='/packages/pages/search/search' className='input'>
               <AtIcon className='icon' size='18' color='#666' value='search' />
               <Text className='txt'>商品搜索, 共{goodsCount}款好物</Text>
             </Navigator>
@@ -135,7 +135,7 @@ class Index extends PureComponent {
               data.banner && data.banner.map(item => {
                 return <SwiperItem key={item.id}>
                   {
-                    item.link > 0 ? <Navigator url={`/pages/goods/goods?id=${item.link}`}>
+                    item.link > 0 ? <Navigator url={`/packages/pages/goods/goods?id=${item.link}`}>
                       <Image className='img' src={item.url} />
                     </Navigator> : <Image className='img' src={item.url} />
                   }
@@ -146,7 +146,7 @@ class Index extends PureComponent {
           <View className='m-menu'>
             {
               data.channel && data.channel.map(item => {
-                return <Navigator key={item.id} className='item' url={`/pages/category/category?id=${item.id}`}>
+                return <Navigator key={item.id} className='item' url={`/packages/pages/category/category?id=${item.id}`}>
                   <Image className='img' src={item.iconUrl} />
                   <Text className='txt'>{item.name}</Text>
                 </Navigator>
@@ -159,7 +159,7 @@ class Index extends PureComponent {
               <View className='h'>
                 <View className='title'>
                   <View>
-                    <Navigator url='/pages/coupon/coupon'>
+                    <Navigator url='/packages/pages/coupon/coupon'>
                       <Text className='txt'>优惠券</Text>
                     </Navigator>
                   </View>
@@ -195,7 +195,7 @@ class Index extends PureComponent {
               <View className='h'>
                 <View className='title'>
                   <View>
-                    <Navigator url='/pages/groupon/grouponList/grouponList'>
+                    <Navigator url='/packages/pages/groupon/grouponList/grouponList'>
                       <Text className='txt'>团购专区</Text>
                     </Navigator>
                   </View>
@@ -205,7 +205,7 @@ class Index extends PureComponent {
                 {
                   data.grouponList.map(item => {
                     return <View className='item' key={item.id}>
-                        <Navigator url={`/pages/goods/goods?id=${item.id}`}>
+                        <Navigator url={`/packages/pages/goods/goods?id=${item.id}`}>
                         <Image className='img' src={item.picUrl}></Image>
                         <View className='right'>
                           <View className='Text'>
@@ -266,7 +266,7 @@ class Index extends PureComponent {
                 {
                   data.brandList.map(item => {
                     return <View className='item item-1' key={item.id}>
-                      <Navigator url={`/pages/brandDetail/brandDetail?id=${item.id}`}>
+                      <Navigator url={`/packages/pages/brandDetail/brandDetail?id=${item.id}`}>
                         <View className='wrap'>
                           <Image className='img' src={item.picUrl} mode='aspectFill'></Image>
                           <View className='mt'>
@@ -296,7 +296,7 @@ class Index extends PureComponent {
                 {
                   data.hotGoodsList.map(item => {
                     return <View className='item' key={item.id}>
-                      <Navigator url={`/pages/goods/goods?id=${item.id}`}>
+                      <Navigator url={`/packages/pages/goods/goods?id=${item.id}`}>
                         <Image className='img' src={item.picUrl}></Image>
                         <View className='right'>
                           <View className='Text'>
@@ -317,7 +317,7 @@ class Index extends PureComponent {
             data.topicList && data.topicList.length > 0 &&  <View className='a-section a-topic'>
               <View className='h'>
                 <View>
-                  <Navigator url='/pages/topic/topic'>
+                  <Navigator url='/packages/pages/topic/topic'>
                     <Text className='txt'>专题精选</Text>
                   </Navigator>
                 </View>
@@ -365,7 +365,7 @@ class Index extends PureComponent {
                     })
                   }
                 </View>
-                <Navigator url={`/pages/category/category?id=${item.id}`} className='t'>
+                <Navigator url={`/packages/pages/category/category?id=${item.id}`} className='t'>
                   <View className='txt'>{'更多'+item.name+'好物 >'}</View>
                 </Navigator>
               </View>

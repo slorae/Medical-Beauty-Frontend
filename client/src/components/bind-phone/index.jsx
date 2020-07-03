@@ -1,8 +1,8 @@
 
 import Taro , { PureComponent } from '@tarojs/taro';
 import { Button } from '@tarojs/components'
-import * as app from '../../utils/app';
-import {bindPhone} from '../../services/auth';
+import * as app from '@/utils/app';
+import {bindPhone} from '@/services/auth';
 import './bindPhone.less';
 
 class Index extends PureComponent {

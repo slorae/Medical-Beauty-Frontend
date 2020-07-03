@@ -4,8 +4,8 @@ import { AtIcon, AtList, AtGrid, AtListItem, AtBadge } from 'taro-ui';
 import Badge from '../../badge/index';
 import BindPhone from '../../bind-phone/index';
 import Contact from '../../contact/index';
-import * as app from '../../../utils/app';
-import * as images from '../../../static/images/index';
+import * as app from '@/utils/app';
+import * as images from '@/images/index';
 
 import './my.less';
 
@@ -14,27 +14,27 @@ const POWER_LIST_CONFIG = {
   coupon: {
     image: images.coupon,
     value: '优惠券',
-    url: '/pages/ucenter/couponList/couponList'
+    url: '/packages/pages/ucenter/couponList/couponList'
   },
   collect: {
     image: images.collect,
     value: '收藏',
-    url: '/pages/ucenter/collect/collect'
+    url: '/packages/pages/ucenter/collect/collect'
   },
   footprint: {
     image: images.footprint,
     value: '足迹',
-    url: '/pages/ucenter/footprint/footprint'
+    url: '/packages/pages/ucenter/footprint/footprint'
   },
   group: {
     image: images.group,
     value: '拼团',
-    url: '/pages/groupon/myGroupon/myGroupon'
+    url: '/packages/pages/groupon/myGroupon/myGroupon'
   },
   address: {
     image: images.address,
     value: '地址',
-    url: '/pages/ucenter/address/address'
+    url: '/packages/pages/ucenter/address/address'
   },
   bindPhone: {
     image: images.mobile,
@@ -49,7 +49,7 @@ const POWER_LIST_CONFIG = {
   about: {
     image: images.about,
     value: '关于我们',
-    url: '/pages/about/about'
+    url: '/packages/pages/about/about'
   }
 
 }
@@ -98,7 +98,7 @@ class My extends Component {
       Taro.setStorageSync('tab', tab);
     } catch (e) {
     }
-    app.navigateToCheck('/pages/ucenter/order/order')
+    app.navigateToCheck('/packages/pages/ucenter/order/order')
   }
 
   handlePowerClick = (child) => {

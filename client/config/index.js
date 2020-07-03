@@ -9,22 +9,43 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: [
-    '@tarojs/plugin-sass',
-    '@tarojs/plugin-less'
-  ],
+  copy: {
+    patterns: [
+      { from: 'sitemap.json', to: 'dist/sitemap.json' },
+      { from: '../project.config.json', to: 'dist/project.config.json' }
+    ],
+    options: {}
+  },
+  alias: {
+    '@/components': 'src/components',
+    '@/utils': 'src/utils',
+    '@/services': 'src/services',
+    '@/packages': 'src/packages',
+    '@/pages': 'src/pages',
+    '@/global_data': 'src/global_data',
+    '@/config': 'src/config',
+    '@/models': 'src/models',
+    '@/constants': 'src/constants',
+    '@/images': 'src/static/images'
+  },
+  plugins: ['@tarojs/plugin-sass', '@tarojs/plugin-less'],
   babel: {
     sourceMap: true,
     presets: [
-      ['env', {
-        modules: false
-      }]
+      [
+        'env',
+        {
+          modules: false
+        }
+      ]
     ],
     plugins: [
       'transform-decorators-legacy',
       'transform-class-properties',
       'transform-object-rest-spread',
-      ['transform-runtime', {
+      [
+        'transform-runtime',
+        {
           helpers: false,
           polyfill: false,
           regenerator: true,
@@ -39,25 +60,18 @@ const config = {
       // 配置项同 https://github.com/mishoo/UglifyJS2#minify-options
     }
   },
-  defineConstants: {
-  },
+  defineConstants: {},
   mini: {
     postcss: {
       autoprefixer: {
         enable: true,
         config: {
-          browsers: [
-            'last 3 versions',
-            'Android >= 4.1',
-            'ios >= 8'
-          ]
+          browsers: ['last 3 versions', 'Android >= 4.1', 'ios >= 8']
         }
       },
       pxtransform: {
         enable: true,
-        config: {
-
-        }
+        config: {}
       },
       url: {
         enable: false,
@@ -73,7 +87,7 @@ const config = {
         }
       }
     },
-    webpackChain (chain, webpack) {
+    webpackChain(chain, webpack) {
       // 是否开启打包文件分析
       // chain.plugin('analyzer')
       //   .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, [])
@@ -87,11 +101,7 @@ const config = {
       autoprefixer: {
         enable: true,
         config: {
-          browsers: [
-            'last 3 versions',
-            'Android >= 4.1',
-            'ios >= 8'
-          ]
+          browsers: ['last 3 versions', 'Android >= 4.1', 'ios >= 8']
         }
       },
       cssModules: {
@@ -103,11 +113,11 @@ const config = {
       }
     }
   }
-}
+};
 
-module.exports = function (merge) {
+module.exports = function(merge) {
   if (process.env.NODE_ENV === 'dev-y1ovt') {
-    return merge({}, config, require('./dev'))
+    return merge({}, config, require('./dev'));
   }
-  return merge({}, config, require('./prod'))
-}
+  return merge({}, config, require('./prod'));
+};

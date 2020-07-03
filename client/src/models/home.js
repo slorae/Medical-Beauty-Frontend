@@ -1,5 +1,5 @@
-import {getIndex} from '../services/index';
-import {getShopNav, getShopNav1} from '../services/shop';
+import {getIndex} from '@/services/index';
+import {getShopNav, getShopNav1} from '@/services/shop';
 
 export default {
   namespace: 'home',

@@ -1,5 +1,5 @@
-import request from '../utils/request';
-import Api from '../config/api';
+import request from '@/utils/request';
+import Api from '@/config/api';
 
 /**
  *  获取分类list

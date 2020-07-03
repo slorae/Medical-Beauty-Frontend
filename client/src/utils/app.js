@@ -2,7 +2,7 @@
 import Taro from '@tarojs/taro';
 import store from '../dva';
 import {SHOP_CONFIG_TYPE} from './enum';
-import {set as setGlobalData, get as getGlobalData} from '../global_data';
+import {set as setGlobalData, get as getGlobalData} from '@/global_data';
 
 /**
  *
@@ -68,7 +68,7 @@ export const navigateToCheck = (url) => {
     })
   } else {
     Taro.navigateTo({
-      url: "/pages/auth/login/login"
+      url: "/packages/pages/auth/login/login"
     });
   }
 }

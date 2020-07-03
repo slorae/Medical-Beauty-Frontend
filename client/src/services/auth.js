@@ -1,7 +1,7 @@
 
 
-import request from '../utils/request';
-import Api from '../config/api';
+import request from '@/utils/request';
+import Api from '@/config/api';
 
 /**
  *  微信登录

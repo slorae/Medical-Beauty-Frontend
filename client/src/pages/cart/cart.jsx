@@ -1,10 +1,8 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button, Image, Input, Block} from '@tarojs/components';
 import { AtCheckbox } from 'taro-ui';
-import {get as getGlobalData} from '../../global_data';
-import { cartUpdate, cartDelete, cartChecked, getCartListApi } from '../../services/cart';
-import { TabBar } from '../../components';
-
+import {get as getGlobalData} from '@/global_data';
+import { cartUpdate, cartDelete, cartChecked, getCartListApi } from '@/services/cart';
 import './index.less';
 
 class Cart extends Component {
@@ -129,7 +127,7 @@ class Cart extends Component {
 
   goLogin = () => {
     Taro.navigateTo({
-      url: "/pages/auth/login/login"
+      url: "/packages/pages/auth/login/login"
     });
   }
 
@@ -193,7 +191,7 @@ class Cart extends Component {
     try {
       Taro.setStorageSync('cartId', 0);
       Taro.navigateTo({
-        url: '/pages/checkout/checkout'
+        url: '/packages/pages/checkout/checkout'
       })
     } catch (e) {}
   }

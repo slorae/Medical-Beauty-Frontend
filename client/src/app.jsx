@@ -1,11 +1,11 @@
 import Taro, { Component } from '@tarojs/taro';
 import { Provider } from '@tarojs/redux';
 import 'taro-ui/dist/style/index.scss';
+import * as user from '@/utils/user';
+import * as app from '@/utils/app';
+import { set as setGlobalData } from '@/global_data'; //  get as getGlobalData
 import dva from './dva';
 import models from './models';
-import * as user from './utils/user';
-import * as app from './utils/app';
-import { set as setGlobalData } from './global_data'; //  get as getGlobalData
 
 import Index from './pages/index';
 
@@ -18,8 +18,6 @@ import './app.less';
 // if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
 //   require('nerv-devtools')
 // }
-
-// const store = configStore()
 
 const dvaApp = dva.createApp({
   initialState: {},
@@ -38,30 +36,7 @@ class App extends Component {
       'pages/ucenter/index/index',
       'pages/catalog/catalog',
       'pages/cart/cart',
-      'pages/custom/page/page',
-
-      'pages/ucenter/address/address',
-      'pages/ucenter/addressAdd/addressAdd',
-      'pages/auth/login/login',
-      'pages/checkout/checkout',
-
-      'pages/auth/accountLogin/accountLogin',
-      'pages/goods/goods',
-      'pages/search/search',
-
-      'pages/auth/register/register',
-      'pages/ucenter/order/order',
-      'pages/ucenter/orderDetail/orderDetail',
-      'pages/ucenter/aftersaleList/aftersaleList',
-      'pages/ucenter/couponList/couponList',
-      'pages/groupon/myGroupon/myGroupon',
-      'pages/ucenter/collect/collect',
-      'pages/ucenter/footprint/footprint',
-      'pages/ucenter/couponSelect/couponSelect',
-      'pages/payResult/payResult',
-      'pages/category/category',
-      'pages/coupon/coupon',
-      'pages/auth/reset/reset'
+      'pages/custom/page/page'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -102,13 +77,33 @@ class App extends Component {
         }
       ]
     },
-    subpackages: [
-      {
-        root: 'packages',
-        name: 'pack2',
-        pages: ['pages/demo/index']
-      }
-    ],
+    subpackages: [{
+      root: "packages",
+      name: "packages",
+      pages: [
+        'pages/auth/login/login',
+        'pages/auth/accountLogin/accountLogin',
+        'pages/auth/register/register',
+        'pages/auth/reset/reset',
+        'pages/goods/goods',
+        'pages/search/search',
+        'pages/groupon/myGroupon/myGroupon',
+        'pages/payResult/payResult',
+        'pages/category/category',
+        'pages/coupon/coupon',
+        'pages/checkout/checkout',
+      
+        'pages/ucenter/address/address',
+        'pages/ucenter/addressAdd/addressAdd',
+        'pages/ucenter/order/order',
+        'pages/ucenter/orderDetail/orderDetail',
+        'pages/ucenter/aftersaleList/aftersaleList',
+        'pages/ucenter/couponList/couponList',
+        'pages/ucenter/collect/collect',
+        'pages/ucenter/footprint/footprint',
+        'pages/ucenter/couponSelect/couponSelect'
+      ]
+    }],
     networkTimeout: {
       request: 10000,
       downloadFile: 10000

@@ -3,7 +3,7 @@ import Taro, {useCallback} from '@tarojs/taro';
 import  { AtTabBar } from 'taro-ui';
 import { Block } from '@tarojs/components'
 import { useSelector, useDispatch } from '@tarojs/redux'
-import * as app from '../../utils/app';
+import * as app from '@/utils/app';
 
 
 export default () => {
@@ -17,7 +17,7 @@ export default () => {
       dispatch({type: 'home/changeShopNavIndex', payload: tab})
       dispatch({type: 'home/changeShopNav', payload: currTab})
     }
-  }, [nav]);
+  }, [dispatch, nav]);
   return <Block>
       <AtTabBar
         className='my-tab-bar'

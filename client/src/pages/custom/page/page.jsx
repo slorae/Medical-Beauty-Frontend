@@ -1,7 +1,7 @@
 import Taro , { Component } from '@tarojs/taro';
 import { View, Text , Button, Block} from '@tarojs/components';
 import { connect } from '@tarojs/redux';
-import { TabBar } from '../../../components';
+import { TabBar } from '@/components';
 
 @connect(({ home }) => ({
   currNav: home.shop.currentNav,

@@ -1,6 +1,6 @@
-import {getSearchHelper, getSearchIndex, clearHistory} from '../services/search';
-import {getGoodsList} from '../services/goods';
-import { resetStore } from '../utils/app';
+import {getSearchHelper, getSearchIndex, clearHistory} from '@/services/search';
+import {getGoodsList} from '@/services/goods';
+import { resetStore } from '@/utils/app';
 
 
 const initState = {

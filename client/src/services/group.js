@@ -1,5 +1,5 @@
-import request from '../utils/request';
-import Api from '../config/api';
+import request from '@/utils/request';
+import Api from '@/config/api';
 
 /**
  *  团购API-详情

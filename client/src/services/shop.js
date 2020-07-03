@@ -1,6 +1,6 @@
-import request from '../utils/request';
-import Api from '../config/api';
-import {Home, HomeSelected, Category, CartSelected, Cart, CategorySelected, My, MySelected} from '../static/images';
+import request from '@/utils/request';
+import Api from '@/config/api';
+import {Home, HomeSelected, Category, CartSelected, Cart, CategorySelected, My, MySelected} from '@/images';
 
 const navData = [
   { title: '首页', image: Home, selectedImage: HomeSelected, ref_type: 1 },
